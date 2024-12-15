@@ -7,64 +7,323 @@
         <script src="main.js"></script>
     </head>
     <body>
+        <!-- Nav bar i toppen af siden, med nogle <a> tags, til at kalde javascript funktioner, som gør vi kan scrolle på siden fra knapperne
+            Her gør jeg brug af css klasser, for at alle links jeg laver vil se ens ud, uden at skulle skrive det flere gange -->
         <nav class="nav-bar">
+            <h1 onclick="scrollToTop()" class="nav-header">Rosa Lauritsen</h1>
             <ul class="nav-ul">
                 <a onclick="scrollToAbout()"><li class="nav-item">Om mig</li></a>
-                <li class="nav-item">Portfolie</li>
-                <li class="nav-item">Kontakt</li>
+                <a onclick="scrollToPortfolio()"><li class="nav-item">Portfolie</li></a>
+                <a onclick="scrollToContact()"><li class="nav-item">Kontakt</li></a>
             </ul>
         </nav>
         
+        <!-- Jeg har delt hele min side op i "containers", så alt kan rykkes rundt på eller pilles fra, hvis det skulle laves om et tidspunkt -->
         <div class="intro-container">
             <div class="name-box">
-                <h1 class="name-heading">Rosa Lauritsen</h1>
+                <h1 class="name-heading">Rosa Eva Mozart Lauritsen</h1>
                 <span class="separator"></span>
-                <h1 class="name-heading">Multimediedesigner</h1>
+                <h1 class="title-heading">Webdesigner / Appdesigner / Multimediedesigner</h1>
             </div>
             <div class="intro-image-container">
-                <img class="intro-image" src="https://static.vecteezy.com/system/resources/thumbnails/026/540/471/small_2x/portrait-of-a-beautiful-young-woman-isolated-png.png">
+                <img class="intro-image" src="grafik/selfies/startselfie.JPG">
             </div>
         </div>
 
         <div class="quote-container">
             <p class="quote-text">
-                “Jeg brænder for at kunne bruge min kreative evner på min arbejdsplads”
+                “Jeg brænder for at kunne bruge mine kreative evner på min arbejdsplads”
             </p>
         </div>
 
         <div class="about-container">
             <div class="about-image-container">
-                <img class="about-image" src="https://rosaeva-portfolie.dk/wp-content/uploads/2024/09/coco-og-mig-768x1311.jpg">
+                <img class="about-image" src="grafik/selfies/aboutselfie.JPG">
             </div>
             <div class="about-text-container">
                 <h3 class="about-header">Hvem er jeg?</h3>
                 <br/>
-                <p class="about-paragraph-1">Jeg hedder Rosa, 20 år gammel og kommer fra Odense. Til dagligt studerer jeg til multimediedesigner på UCL, hvilket jeg er rigtig glad for.</p>
-                <p class="about-paragraph-2">Jeg brander for at være kreativ og kunne få lov til at bruge det i mit arbejde. Jeg har altid haft interesse for at kunne være kreativ og bruge min computer der hjemme derfor har jeg valgt multimediedesigner da jeg godt kunne lide sammenlægningen mellem det kreative og teknologi, dette lød rigtigt spændene for mig. Jeg er kreativt anlagt og interesserer mig generelt meget for design. Jeg valgte Multimediedesigner-uddannelsen, da sammenkoblingen mellem design og teknologi lød spændende. Derfor måtte jeg selvfølgelig prøve det.</p>
+                <p class="about-paragraph-1">Jeg hedder Rosa, er 20 år gammel og kommer fra Odense. Til dagligt studerer jeg til multimediedesigner på UCL, hvilket jeg er rigtig glad for.</p>
+                <p class="about-paragraph-2">Jeg brænder for at være kreativ og kunne få lov til at bruge det i mit arbejde. Jeg har altid haft interesse for at kunne være kreativ og bruge min computer derhjemme, derfor har jeg valgt multimediedesigner da jeg godt kunne lide sammenlægningen mellem det kreative og teknologi, dette lød rigtig spændende for mig. Jeg er kreativt anlagt og interesserer mig generelt meget for design. Jeg valgte Multimediedesigner-uddannelsen, da sammenkoblingen mellem design og teknologi lød spændende. Derfor måtte jeg selvfølgelig prøve det.</p>
             </div>
         </div>
 
+        <!-- Min container til portfolie er bygget op på en dynamisk måde, 
+         der sørger for at jeg kan tilføje eller fjerne ting så meget jeg har lyst til, og designet vil automatisk blive passet ind efter det.
+         Derudover gør jeg brug af en onclick funktion, som kalder javascript til at åbne et vindue med mere information om det enkelte projekt -->
         <div class="portfolio-container">
             <h1 class="portfolio-header">Portfolio</h1>
             <span class="separator" id="portfolio-separator"></span>
             <div class="portfolio-items">
                 <div class="portfolio-item">
-                    <div class="portfolio-image-container"></div>
+                    <div class="portfolio-image-container" onclick="openPortrait()">
+                        <img class="portfolio-image" src="grafik/selvportræt.png">
+                        <div class="image-overlay">
+                            <div class="image-overlay-text">
+                                <h1>Selvportræt</h1>
+                                <p class="image-overlay-paragraph">Jeg har arbejdet med at lave selvportrætter i Illustrator ved at gøre brug af pentool. 
+                                    Dette har givet mig større forståelse for at bruge Illustrator, og at gå i detaljer med de små ting.
+                                    Jeg har fået bedre forståelse for de basale værktøjer på Illustrator, såsom pentool, og hvordan man bruger det, til ikke kun realistiske, men også grafiske designs.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="portfolio-item">
-                    <div class="portfolio-image-container"></div>
+                    <div class="portfolio-image-container" onclick="openArt()">
+                        <!---
+                        Billedet er et stock photo fra AllPainter.com
+                        --->
+                        <img class="portfolio-image" src="grafik/napoleon.jpg">
+                        <div class="image-overlay">
+                            <div class="image-overlay-text">
+                                <h1>Moving art</h1>
+                                <p class="image-overlay-paragraph">
+                                    I denne opgave er jeg blevet kastet ud i at bruge Photoshop uden nogen forståelse for det på forhånd.
+                                    Jeg føler jeg selv har fået eksperimenteret med programmet og føler jeg har fået en basal forståelse for programmet. 
+                                    Jeg havde på forhånd meget lidt kendskab til After effects grundet tidligere undervisning som gjorde jeg vidste nogle ting, 
+                                    dog måtte jeg stadig eksperimentere en del med det og jeg føler jeg har fået en bedre forståelse overfor programmet og hvordan det virker. 
+                                    Jeg kan i hvert fald bedre huske nu, hvordan jeg laver mange af de basic ting i det.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="portfolio-item">
-                    <div class="portfolio-image-container"></div>
+                    <div class="portfolio-image-container" onclick="openWebdesign()">
+                        <img class="portfolio-image" src="grafik/webdesign.png">
+                        <div class="image-overlay">
+                            <div class="image-overlay-text">
+                                <h1>Webdesign</h1>
+                                <p class="image-overlay-paragraph">
+                                    En af projekterne handlede om at redesigne en hjemmeside. Her har jeg valgt at redesigne naesby-skole.aula.dk, hvor jeg har stået for at skulle redesigne alle siderne.
+                                    Jeg har haft fokus på at lave siden mere imødekommende og livlig, for både børn og forældre når de kommer ind på siden.
+                                    Jeg har valgt at bruge deres eget logos farver til hjemmesiden, da det spiller godt sammen. 
+                                    Mit største fokus har været at gøre det nemmere for brugerne at navigere rundt på siden og finde de ting man leder efter, da jeg ud fra mine brugertest kunne se, at det var det største problem med siden.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="portfolio-item">
-                    <div class="portfolio-image-container"></div>
+                    <div class="portfolio-image-container" onclick="openApp()">
+                        <img class="portfolio-image" src="grafik/datingapp.png">
+                        <div class="image-overlay">
+                            <div class="image-overlay-text">
+                                <h1>Appdesign</h1>
+                                <p class="image-overlay-paragraph">
+                                    I denne workshop har jeg fået stillet som opgave, at skulle designe en dating app til 3 forskellige grupper, unge, ældre og dyr.
+                                    Jeg har så valgt at fokusere på ældre mennesker med min app. 
+                                    Prototypen af appen er designet i Figma og lavet interaktiv, så brugeren selv kan opleve, hvordan appen skal fungere.
+                                    Jeg har igennem denne workshop, lært at bruge Figma på en anden måde end normalt, hvor jeg har brugt mere kodning til at udvikle prototypen.
+                                    Der har jeg også arbejdet i at kunne lære at forbedre min prototype, ud fra feedback jeg har fået fra brugertest.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="portfolio-item">
-                    <div class="portfolio-image-container"></div>
+                    <div class="portfolio-image-container" onclick="openPhoto()">
+                        <img class="portfolio-image" src="grafik/lukas.png">
+                        <div class="image-overlay">
+                            <div class="image-overlay-text">
+                                <h1>Fotografi</h1>
+                                <p class="image-overlay-paragraph">Jeg har også fået taget billeder af 2 forskellige produkter. Den ene er en Miffy Bamse og den anden en booster. To helt forskellige ting. Jeg prøvede at eksperimentere lidt med vinklen på Miffy bamsen for at gøre mærket lidt tydligere, men også for at eksperimentere lidt. Ved Boosteren prøvede jeg at sprøjte lidt vand på for at give det en effekt af, at den var kold.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="portfolio-item">
-                    <div class="portfolio-image-container"></div>
+                    <div class="portfolio-image-container" onclick="openEmotes()">
+                        <img class="portfolio-image" src="grafik/emotes.png">
+                        <div class="image-overlay">
+                            <div class="image-overlay-text">
+                                <h1>Emotes</h1>
+                                <p class="image-overlay-paragraph">Jeg kan godt lide at hjælpe folk med at lave deres idéer om til emotes som de kan bruge.
+                                    Jeg har lært at snakke med mennesker og forstå deres tanker og bruge dem til at lave emotes som er tilfredsstilende for dem.
+                                    Jeg stræber mig altid for at lave detaljerede emotes, hvor man kan føle meningen bag dem, så man forstår historien ved dem.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-header">
+                <h1>Kontakt mig!</h1>
+                <p>Hvis jeg har fanget din interesse, så kan du kontakte mig på følgende oplysninger</p>
+            </div>
+            <div class="contact-information-container">
+                <div class="contact-information">
+                    <ul class="contact-list">
+                        <li class="contact-item">
+                            <!-- Billede er gratis fra Wikipedia https://en.m.wikipedia.org/wiki/File:Sample_User_Icon.png -->
+                            <img class="contact-icon" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" />
+                            <p>Rosa Eva Mozart Lauritsen</p>
+                        </li>
+                        <li class="contact-item">
+                            <!-- Billede er gratis fra Veryicon https://www.veryicon.com/icons/miscellaneous/heg-main-function-icon/phone-98.html -->
+                            <img class="contact-icon" src="grafik/phone.png" />
+                            <a class="contact-link" href="tel:+4522410110"><p>+45 22 41 01 10</p></a>
+                        </li>
+                        <li class="contact-item">
+                            <!-- Billede er gratis fra Veryicon https://www.veryicon.com/icons/application/4px-heavy-line-icon/mail-205.html -->
+                            <img class="contact-icon" src="grafik/mail.png">
+                            <a class="contact-link" href="mailto:rosaml2204@gmail.com"><p>rosaml2204@gmail.com</p></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-image-container">
+                    <img src="grafik/selfies/contactselfie.JPG" class="contact-image" alt="Selfie" />
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modals -->
+        <!-- Her ligger alle mine vinduer, som er skjult indtil de bliver åbnet fra portfoliet. De er sat op med et billede i toppen og en luk knap ved siden af
+          Derefter er der sat op til en overskrift og noget tekst, hvor det igen er muligt at tilføje mere tekst, billeder osv. -->
+        <div id="portrait-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closePortrait()">&times;</span>
+                <div class="modal-image-container">
+                    <img class="modal-image" src="grafik/pentool-illustrator.png" alt="header" />
+                </div>
+                <h1 class="modal-header">Selvportræt</h1>
+                <div class="modal-text">
+                    <p>Jeg har arbejdet med at lave selvportrætter i Illustrator ved at gøre brug af pentool. 
+                        Dette har givet mig større forståelse for at bruge Illustrator, og at gå i detaljer med de små ting.
+                        Jeg har fået bedre forståelse for de basale værktøjer på Illustrator, såsom pentool, og hvordan man bruger det, til ikke kun realistiske, men også grafiske designs.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="emotes-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeEmotes()">&times;</span>
+                <div class="modal-image-container">
+                    <img class="modal-image" src="grafik/emotes.png" alt="header" />
+                </div>
+                <h1 class="modal-header">Emotes</h1>
+                <div class="modal-text">
+                    <p>
+                        Jeg kan godt lide at hjælpe folk med at lave deres idéer om til emotes som de kan bruge.
+                        Jeg har lært at snakke med mennesker og forstå deres tanker og bruge dem til at lave emotes som er tilfredsstilende for dem.
+                        Jeg stræber mig altid for at lave detaljerede emotes, hvor man kan føle meningen bag dem, så man forstår historien ved dem.
+                    </p>
+                </div>
+                <br/>
+                <div class="modal-image-container">
+                    <img class="modal-image" src="grafik/jinx.png" alt="header" />
+                </div>
+            </div>
+        </div>
+
+        <div id="photo-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closePhoto()">&times;</span>
+                <div class="modal-image-container">
+                    <img class="modal-image" src="grafik/miffy.png" alt="header" />
+                </div>
+                <h1 class="modal-header">Fotografi</h1>
+                <div class="modal-text">
+                    <p>
+                        Jeg har også fået taget billeder af 2 forskellige produkter. 
+                        Den ene er en Miffy Bamse og den anden en booster. To helt forskellige ting. 
+                        Jeg prøvede at eksperimentere lidt med vinklen på Miffy bamsen for at gøre mærket lidt tydligere, 
+                        men også for at eksperimentere lidt. Ved Boosteren prøvede jeg at sprøjte lidt vand på for at give det en effekt af, 
+                        at den var kold.
+                    </p>
+                </div>
+                <br/>
+                <div class="modal-image-container">
+                    <img class="modal-image" src="grafik/booster.png" alt="header" />
+                </div>
+            </div>
+        </div>
+
+        <div id="webdesign-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeWebdesign()">&times;</span>
+                <div class="modal-image-container">
+                    <img class="modal-image" src="grafik/figma.png" alt="header" />
+                </div>
+                <h1 class="modal-header">Webdesign</h1>
+                <div class="modal-text">
+                    <p>
+                        En af projekterne handlede om at redesigne en hjemmeside. Her har jeg valgt at redesigne naesby-skole.aula.dk, hvor jeg har stået for at skulle redesigne alle siderne.
+                        Jeg har haft fokus på at lave siden mere imødekommende og livlig, for både børn og forældre når de kommer ind på siden.
+                        Jeg har valgt at bruge deres eget logos farver til hjemmesiden, da det spiller godt sammen. 
+                        Mit største fokus har været at gøre det nemmere for brugerne at navigere rundt på siden og finde de ting man leder efter, da jeg ud fra mine brugertest kunne se, at det var det største problem med siden.
+                    </p>
+                    <p>
+                        Jeg har lært at bruge Figma på en helt nye måde og fået udfordret mine skills i det. 
+                        Jeg har fået mere styr på Figma og fået en bedre forståelse af det. 
+                        InDesign har været svært for mig at finde ud af, men jeg synes jeg har fået styr på det basale i det efter dette projekt. 
+                        Jeg kender til nogle forskellige tricks i det nu og forstår det basic i InDesign.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="app-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeApp()">&times;</span>
+                <div class="modal-image-container">
+                    <img class="modal-image" src="grafik/datingapp-proces.png" alt="header" />
+                </div>
+                <h1 class="modal-header">Appdesign</h1>
+                <div class="modal-text">
+                    <p>
+                        I denne workshop har jeg fået stillet som opgave, at skulle designe en dating app til 3 forskellige grupper, unge, ældre og dyr.
+                        Jeg har så valgt at fokusere på ældre mennesker med min app. 
+                        Prototypen af appen er designet i Figma og lavet interaktiv, så brugeren selv kan opleve, hvordan appen skal fungere.
+                        Jeg har igennem denne workshop, lært at bruge Figma på en anden måde end normalt, hvor jeg har brugt mere kodning til at udvikle prototypen.
+                        Der har jeg også arbejdet i at kunne lære at forbedre min prototype, ud fra feedback jeg har fået fra brugertest.
+                    </p>
+                    <p>
+                        Du kan afprøve prototypen af appen <a target="_blank" href="https://www.figma.com/proto/8bdN9Wy4Odk8Vr3lEW5cu3/Senior-Samv%C3%A6r?node-id=3-2&starting-point-node-id=3%3A2">her</a>
+                   </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="art-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeArt()">&times;</span>
+                <div class="modal-image-container">
+                    <!-- <img class="modal-image" src="grafik/" alt="header" /> -->
+                     <video autoplay muted loop class="modal-image">
+                        <source src="grafik/napoleon.mp4" type="video/mp4">
+                     </video>
+                </div>
+                <h1 class="modal-header">Moving art</h1>
+                <div class="modal-text">
+                    <p>
+                        I denne opgave er jeg blevet kastet ud i at bruge Photoshop uden nogen forståelse for det på forhånd.
+                        Jeg føler jeg selv har fået eksperimenteret med programmet og føler jeg har fået en basal forståelse for programmet. 
+                        Jeg havde på forhånd meget lidt kendskab til After effects grundet tidligere undervisning som gjorde jeg vidste nogle ting, 
+                        dog måtte jeg stadig eksperimentere en del med det og jeg føler jeg har fået en bedre forståelse overfor programmet og hvordan det virker. 
+                        Jeg kan i hvert fald bedre huske nu, hvordan jeg laver mange af de basic ting i det.
+                    </p>
+                </div>
+                <br/>
+                <div class="modal-image-container">
+                    <img class="modal-image" src="https://rosaeva-portfolie.dk/wp-content/uploads/2024/11/Skaermbillede-2024-11-04-132206-1536x814.png" alt="Photoshop proces"/>
+                </div>
+                <br/>
+                <div class="modal-text">
+                    <p>Jeg har valgt at bruge maleriet af Napoleon på sin hest jeg fik inspiration fra en tidligere elev som har brugt samme billede, 
+                        jeg føler dog, at det er begrænset, hvad jeg ville kunne lave anderledes ved dette billede. 
+                        Imens jeg sad og brainstormede, kom jeg til at tænke på filmen ”Det regner med frikadeller”, og valgte at kombinere mit maleri sammen med den film, 
+                        derfra er jeg kommet op med ideen om Napoleon der sejrer gennem sin hest på krig mens det regner med frikadeller
+                    </p>
+                </div>
+                <br/>
+                <div class="modal-image-container">
+                    <img class="modal-image" src="https://rosaeva-portfolie.dk/wp-content/uploads/2024/11/Skaermbillede-2024-11-04-132222-1-768x407.png" alt="Photoshop proces"/>
                 </div>
             </div>
         </div>

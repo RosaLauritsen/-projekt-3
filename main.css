@@ -1,8 +1,11 @@
+/* Vi fjerner list-style fra listen og tilføjer lidt mellemrum mellem hvert punkt */
 .nav-ul {
     list-style: none;
     margin-right: 5%;
 }
 
+
+/* Viser alle punkter på samme linje tilføjer lidt mellemrum og ændrer størrelse og tykkelse på tekst */
 .nav-item {
     display: inline-block;
     margin: 0 20px;
@@ -10,13 +13,15 @@
     font-weight: 500;
 }
 
+/* Når man holder musen over punktet, skifter det farve */
 .nav-item:hover {
     color: #223240;
     cursor: pointer;
 }
 
+/* Viser nav-bar i en flex-box, hvor vi centrerer alt indholdt horisontalt, og ligger det helt ud i højre side */
 .nav-bar {
-    background-color: #347355;
+    background-color: #B5C18E;
     width: 100%;
     height: 90px;
     margin: 0;
@@ -24,15 +29,32 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    position: sticky; /* Sørger for at nav-bar sidder fast i toppen */
+    top: 0; /* Sætter den helt op i toppen af vinduet */
+    z-index: 2; /* Sørger for at nav-bar ligger over andet indhold på siden */
 }
 
+/* Overskriver flex-end fra nav-bar, og rykker header helt ud i venstre side */
+.nav-header {
+  margin-right: auto;
+  margin-left: 25px; /* Giver en smule luft til venstre */
+}
+
+/* Sætter cursor når holder over header i nav */
+.nav-header:hover {
+  cursor: pointer;
+}
+
+/* Sætter en generel font for alt indhold på siden */
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Igen en flexbox hvor vi centrerer indhold med lidt mellemrum. 
+De vil automatisk overlappe hvis siden er for lille, hvilket giver en fed effekt med billedet */
 .intro-container {
-    background-color: #60BF81;
+    background-color: #DEAC80;
     height: 500px;
     display: flex;
     color: white;
@@ -45,11 +67,16 @@ body {
     height: 100%;
 }
 
+/* Sørger for at billedet fylder hele den box den må være i, og udfylder det hele */
 .intro-image {
-    height: 100%;
-    width: auto;
+    height: 80%;
+    width: 80%;
+    object-fit: cover;
+    border-radius: 20px;
+    margin: 10% 0 0 10%;
 }
 
+/* Sætter bredden til max 50% og viser den over billedet */
 .name-box {
     max-width: 50%;
     z-index: 1;
@@ -61,12 +88,22 @@ body {
     margin: 10px 0;
 }
 
+/* Sætter stilen til italic, for at få skrå bogstaver på teksten */
+.title-heading {
+    font-size: 32px;
+    font-weight: 400;
+    margin: 10px 0 10px 25px;
+    font-style: italic;
+}
+
+/* En tom box, som bare har en border med en farve */
 .separator {
     width: 80%;
     border: 2px solid white;
     display: block;
 }
 
+/* Centrerer alt indhold i midten af boksen */
 .quote-container {
     height: 400px;
     color: black;
@@ -77,67 +114,289 @@ body {
     font-style: italic;
 }
 
+/* Centrerer alt indhold i midten af boksen */
 .about-container {
-    background-color: #223240;
+    background-color: #914F1E;
     display: flex;
     color: white;
     justify-content: center;
     align-items: center;
-    padding: 20px 0;
+    padding: 20px 0; /* Tilføjer lidt mellemrum inde i boksen i toppen og bunden og 0 i siderne */
 }
 
+/* Boksen må max fylde 50% og har lidt mellemrum til højre så det ikke står helt ude i siden */
 .about-text-container {
     width: 50%;
-    padding: 0 10%;
+    padding-right: 10%;
     font-size: 24px;
-    line-height: 1.5em;
+    line-height: 1.5em; /* Sætter en linje højden i boksen, så der er lidt mere mellemrum mellem linjerne. Det gør det lidt mere overskueligt */
 }
 
+/* Boksen må højst fylde halvdelen og centrere alt indhold i den */
 .about-image-container {
     width: 50%;
     display: flex;
     justify-content: center;
 }
 
+/* Billedet må højst fylde 80% af boksen den er i og max 700px. Derefter tilpasser billedet selv til, hvad den kan fylde mens den holder sit format */
 .about-image {
     max-width: 80%;
     max-height: 700px;
-    border-radius: 20px;
+    border-radius: 20px; /* Giver lidt runde hjørner på billedet */
 }
 
+/* Skubber portfolie boksen lidt ned for at lave lidt mere mellemrum */
 .portfolio-container {
     margin-top: 3rem;
 }
 
+/* Centrerer teksten i headeren, og sætter en tykkelse størrelse og skrå skrift */
 .portfolio-header {
     text-align: center;
-    font-size: 36px;
+    font-size: 46px;
+    font-style: italic;
     font-weight: 500;
     margin-bottom: 7px;
 }
 
+/* Endnu en adskiller, som vi centrerer med margin left */
 #portfolio-separator {
     color: black;
     border: 2px solid black;
     width: 15%;
-    margin-left: 42.5%;
+    margin-left: 42.5%; /* Tager det resterende af sidebredden (100% -15% fra width) og skubber det halvvejs ind fra venstre side */
 }
 
+/* Dynamisk opsætning af alle punkter i portfoliet. Vi viser boksen som en flexbox som viser punkterne på række og "wrapper" - dvs. hvis der ikke er plads, laver den linjeskift
+Boksen skal fylde 80% af siden og centreres med margin-left */
 .portfolio-items {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-top: 50px;
+    width: 80%;
+    margin-left: 10%;
 }
 
+/* Hver punkt skal fylde 50% af boksen og have et format, som sørger for at de er nogenlunde firkantede  */
 .portfolio-item {
     width: 50%;
     aspect-ratio: 1.7;
     margin: 25px 0;
+    position: relative; /* Gør at boksen er positioneret relativt til dens normale position - så mit overlay bliver sat rigtigt  */
 }
 
+/* Billede boksen må være 60% i bredde af den overliggende boks og centreres med margin left */
 .portfolio-image-container {
     width: 60%;
     height: 100%;
-    background-color: #3B8C66;
+    background-color: #B5C18E;
     margin-left: 20%;
 }
+
+/* Billedet skal fylde 90% i bredde og højde, så der er lidt baggrundsfarve fra boksen over. 
+Billedet skal "cover" så den udfylder boksen, men beskærer billedet hvis det hele ikke kan være der */
+.portfolio-image {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+/* Positionerer overlayet til absolute. Dvs den ignorer andet ellers styling af position, men pga. at boksen den ligger i har position relative,
+så er absolute i forhold til den boks den ligger i. Der skal den fylde hele højden og 60% i bredde - ligesom boksen billedet er i */
+.image-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20%;
+    right: 0;
+    height: 100%;
+    width: 60%;
+    opacity: 0; /* Skjuler overlay som standard */
+    transition: .5s ease; /* Giver en effekt, når elementet bliver "transformeret". */
+    background-color: #B5C18E;
+  }
+
+  /* Når vi holder musen over billedet, skal vi "transformere" overlay til at sætte opacity til 1 */
+  .portfolio-image-container:hover .image-overlay {
+    opacity: 1;
+  }
+
+  /* Positionerer teksten i midten af boksen */
+  .image-overlay-text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%); /* Transformerer teksten til at være centreret og fylde en hvis bredde i boksen */
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  /* Sørger for at der kun kan være 6 linjer i overlay, for at teksten ikke kommer ud af boksen */
+  .image-overlay-paragraph {
+    overflow: hidden; /* Skjuler automatisk indhold der skulle gå ud over den normale højde eller bredde */
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    line-clamp: 6; 
+    -webkit-box-orient: vertical;
+  }
+
+  /* Skjuler vinduer som standard. Sætter dem i fast position, over alt andet med lidt mellemrum til toppen. 
+  Fylder hele siden og giver en "grå"-agtig baggrundsfarve til siden når vinduet er åbent */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+  }
+
+  /* Selve vinduets indhold. Positionerer alt indhold med lidt mellemrum og definerer at den max må være 80% af sidens højde */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    max-height: 80%;
+    border-radius: 20px; /* Tilføjer runde kanter på vinduet */
+    overflow: auto; 
+    -ms-overflow-style: none; /* Disse skjuler scrollbar */
+    scrollbar-width: none; /* Disse skjuler scrollbar */
+  }
+
+  /* En ekstra boks til teksten i vinduet som har en prikket border med lidt mellemrum ud til */
+  .modal-text {
+    border: 5px dotted #914F1E;
+    padding: 10px;
+  }
+
+  /* Sætter luk knappen ud i højre side med en størrelse og tykkelse */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  /* Ændringer af farver og musen når man holder over luk knappen */
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* Billedet i boksen må max være 100% af vinduet. Centrerer billedet i boksen */
+  .modal-image-container {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  /* Gør så billedet altid holder sit format i sin boks */
+  .modal-image {
+    object-fit: contain;
+    max-width: calc(100% - 30px); /* calc funktionen kan bruges til udregninger. Her må billedet være 100% - 30px. 15px i hver side fra padding, da vi gerne vil have baggrund i kanten */
+    max-height: 400px;
+    padding: 15px;
+    background-color: #914F1E;
+  }
+
+  /* Giver header en baggrund og lidt mellemrum */
+  .modal-header {
+    text-align: center;
+    background-color: #B5C18E;
+    padding: 5px;
+    color: white;
+  }
+
+  /* Skjuler scrollbar i vinduet */
+  .modal-content::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Giver lidt mellemrum og baggrundsfarve i boksen */
+  .contact-container {
+    width: 100%;
+    background-color: #914F1E;
+    color: white;
+    padding: 50px 0;
+    margin-top: 40px;
+  }
+
+  /* Centrerer headeren */
+  .contact-header {
+    text-align: center;
+  }
+
+  /* Viser boksen som flex og centrerer alt indhold på siden */
+  .contact-information-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Fjerner igen standard list-style og gør teksten større */
+  .contact-list {
+    list-style: none;
+    font-size: 24px;
+  }
+
+  /* Boksen i listen som centrerer horisontalt så billede og tekst står i samme højde */
+  .contact-item {
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Boksen skal fylde halvdelen af sidebredden og have lidt mellemrum ud til kanten */
+  .contact-information {
+    width: 50%;
+    padding-left: 10%;
+  }
+
+  /* Boksen skal fylde halvdelen af siden */
+  .contact-image-container {
+    width: 50%;
+  }
+
+  /* Billedet må kun være 25px høj og bred og skal have en baggrundsfarve og være rund */
+  .contact-icon {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    background-color: white;
+    border-radius: 50%; /* Gør så boksen bliver helt rund */
+    padding: 3px;
+    margin-right: 15px;
+    color: white;
+  }
+
+  /* Gør al teksten i links til hvide */
+  .contact-link {
+    color: white;
+  }
+
+  .contact-header > p {
+    font-size: 18px;
+  }
+
+  /* Sætter height og maks bredde på billedet og får billeder til at dække boksen med lidt runde kanter */
+  .contact-image {
+    height: 80%;
+    max-width: 80%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
