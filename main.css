@@ -112,6 +112,7 @@ De vil automatisk overlappe hvis siden er for lille, hvilket giver en fed effekt
     align-items: center;
     justify-content: center;
     font-style: italic;
+    padding: 0 10%;
 }
 
 /* Centrerer alt indhold i midten af boksen */
@@ -243,7 +244,6 @@ så er absolute i forhold til den boks den ligger i. Der skal den fylde hele hø
     overflow: hidden; /* Skjuler automatisk indhold der skulle gå ud over den normale højde eller bredde */
     display: -webkit-box;
     -webkit-line-clamp: 6;
-    line-clamp: 6; 
     -webkit-box-orient: vertical;
   }
 
@@ -395,8 +395,8 @@ så er absolute i forhold til den boks den ligger i. Der skal den fylde hele hø
 
   /* Sætter height og maks bredde på billedet og får billeder til at dække boksen med lidt runde kanter */
   .contact-image {
-    height: 80%;
+    max-height: 80%;
     max-width: 80%;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 20px;
   }

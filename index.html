@@ -12,9 +12,9 @@
         <nav class="nav-bar">
             <h1 onclick="scrollToTop()" class="nav-header">Rosa Lauritsen</h1>
             <ul class="nav-ul">
-                <a onclick="scrollToAbout()"><li class="nav-item">Om mig</li></a>
-                <a onclick="scrollToPortfolio()"><li class="nav-item">Portfolie</li></a>
-                <a onclick="scrollToContact()"><li class="nav-item">Kontakt</li></a>
+                <li class="nav-item" onclick="scrollToAbout()">Om mig</li>
+                <li class="nav-item" onclick="scrollToPortfolio()">Portfolie</li>
+                <li class="nav-item" onclick="scrollToContact()">Kontakt</li>
             </ul>
         </nav>
         
@@ -26,7 +26,7 @@
                 <h1 class="title-heading">Webdesigner / Appdesigner / Multimediedesigner</h1>
             </div>
             <div class="intro-image-container">
-                <img class="intro-image" src="grafik/selfies/startselfie.JPG">
+                <img alt="Selfie" class="intro-image" src="grafik/selfies/startselfie.JPG">
             </div>
         </div>
 
@@ -38,7 +38,7 @@
 
         <div class="about-container">
             <div class="about-image-container">
-                <img class="about-image" src="grafik/selfies/aboutselfie.JPG">
+                <img alt="Selfie" class="about-image" src="grafik/selfies/aboutselfie.JPG">
             </div>
             <div class="about-text-container">
                 <h3 class="about-header">Hvem er jeg?</h3>
@@ -57,7 +57,7 @@
             <div class="portfolio-items">
                 <div class="portfolio-item">
                     <div class="portfolio-image-container" onclick="openPortrait()">
-                        <img class="portfolio-image" src="grafik/selvportræt.png">
+                        <img alt="Selvportræt" class="portfolio-image" src="grafik/selvportræt.png">
                         <div class="image-overlay">
                             <div class="image-overlay-text">
                                 <h1>Selvportræt</h1>
@@ -73,7 +73,7 @@
                         <!---
                         Billedet er et stock photo fra AllPainter.com
                         --->
-                        <img class="portfolio-image" src="grafik/napoleon.jpg">
+                        <img alt="Napoleon" class="portfolio-image" src="grafik/napoleon.jpg">
                         <div class="image-overlay">
                             <div class="image-overlay-text">
                                 <h1>Moving art</h1>
@@ -90,7 +90,7 @@
                 </div>
                 <div class="portfolio-item">
                     <div class="portfolio-image-container" onclick="openWebdesign()">
-                        <img class="portfolio-image" src="grafik/webdesign.png">
+                        <img alt="Webdesign" class="portfolio-image" src="grafik/webdesign.png">
                         <div class="image-overlay">
                             <div class="image-overlay-text">
                                 <h1>Webdesign</h1>
@@ -106,7 +106,7 @@
                 </div>
                 <div class="portfolio-item">
                     <div class="portfolio-image-container" onclick="openApp()">
-                        <img class="portfolio-image" src="grafik/datingapp.png">
+                        <img alt="Datingapp" class="portfolio-image" src="grafik/datingapp.png">
                         <div class="image-overlay">
                             <div class="image-overlay-text">
                                 <h1>Appdesign</h1>
@@ -123,7 +123,7 @@
                 </div>
                 <div class="portfolio-item">
                     <div class="portfolio-image-container" onclick="openPhoto()">
-                        <img class="portfolio-image" src="grafik/lukas.png">
+                        <img alt="Modelbillede" class="portfolio-image" src="grafik/lukas.png">
                         <div class="image-overlay">
                             <div class="image-overlay-text">
                                 <h1>Fotografi</h1>
@@ -134,7 +134,7 @@
                 </div>
                 <div class="portfolio-item">
                     <div class="portfolio-image-container" onclick="openEmotes()">
-                        <img class="portfolio-image" src="grafik/emotes.png">
+                        <img alt="Emotes" class="portfolio-image" src="grafik/emotes.png">
                         <div class="image-overlay">
                             <div class="image-overlay-text">
                                 <h1>Emotes</h1>
@@ -159,17 +159,17 @@
                     <ul class="contact-list">
                         <li class="contact-item">
                             <!-- Billede er gratis fra Wikipedia https://en.m.wikipedia.org/wiki/File:Sample_User_Icon.png -->
-                            <img class="contact-icon" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" />
+                            <img alt="Bruger" class="contact-icon" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" />
                             <p>Rosa Eva Mozart Lauritsen</p>
                         </li>
                         <li class="contact-item">
                             <!-- Billede er gratis fra Veryicon https://www.veryicon.com/icons/miscellaneous/heg-main-function-icon/phone-98.html -->
-                            <img class="contact-icon" src="grafik/phone.png" />
+                            <img alt="Telefon" class="contact-icon" src="grafik/phone.png" />
                             <a class="contact-link" href="tel:+4522410110"><p>+45 22 41 01 10</p></a>
                         </li>
                         <li class="contact-item">
                             <!-- Billede er gratis fra Veryicon https://www.veryicon.com/icons/application/4px-heavy-line-icon/mail-205.html -->
-                            <img class="contact-icon" src="grafik/mail.png">
+                            <img alt="Mail" class="contact-icon" src="grafik/mail.png">
                             <a class="contact-link" href="mailto:rosaml2204@gmail.com"><p>rosaml2204@gmail.com</p></a>
                         </li>
                     </ul>
